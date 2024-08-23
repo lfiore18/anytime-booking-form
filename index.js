@@ -11,6 +11,7 @@ function calculatePriceOfStay()
 
     let numOfNightsToStay = stayDurationEl.value;
 
+    // 
     if (numOfNightsToStay <= 0)
     {
         numOfNightsToStay = 1;
@@ -21,5 +22,11 @@ function calculatePriceOfStay()
     priceCalculationTotal.innerText = `£${numOfNightsToStay * pricePerDay}`;
     totalPriceSpan.innerText = `£${numOfNightsToStay * pricePerDay}`;
 }
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+});
 
 calculatePriceOfStay();

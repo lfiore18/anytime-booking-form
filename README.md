@@ -16,7 +16,7 @@ There are a few bugs. For example, you can choose a check-in date that is greate
 
 For styling purposes, I opted for Tailwind simply because it's what I'm most comfortable with and used to. It could have just as easily have been Bootstrap or vanilla CSS.
 
-I hope I've done enough to demonstrate my skill and I thank you for your consideration. 
+I hope I've done enough to demonstrate my skill and I thank you for your consideration.
 
 ## Running the project
 It should be as easy as:
