@@ -10,21 +10,7 @@ function dateDiffInDays(a, b)
 
 function calculatePriceOfStay()
 {
-    // get dates 
-    const checkInDateEl = document.getElementById("check-in-date");
-    const checkOutDateEl = document.getElementById("check-out-date");
-
-    // convert to date objects to work with dateDiffInDays
-    let checkInDate = new Date(checkInDateEl.value);
-    let checkOutDate = new Date(checkOutDateEl.value);
-
-    // Return early if the checkin date is greater than checkout date
-    if (checkInDate >= checkOutDate)
-    {
-        checkOutDate.setDate(checkInDate.getDate() + 1);
-        checkOutDateEl.value = checkOutDate.toISOString().slice(0, 10);
-    }
-
+    const stayDurationEl = document.getElementById("stay-duration");
     const totalPriceSpan = document.getElementById("total-price");
     
     const priceCalculationLabel = document.getElementById("nights-price-label");
@@ -33,7 +19,13 @@ function calculatePriceOfStay()
     // hardcoded price per day
     const pricePerDay = 199;
 
-    let numOfNightsToStay = dateDiffInDays(checkInDate, checkOutDate);
+    let numOfNightsToStay = stayDurationEl.value;
+
+    if (numOfNightsToStay <= 0)
+    {
+        numOfNightsToStay = 1;
+        stayDurationEl.value = numOfNightsToStay;
+    }
 
     priceCalculationLabel.innerText = `£${pricePerDay} x ${numOfNightsToStay} night${numOfNightsToStay > 1 ? 's' : ''}`;
     priceCalculationTotal.innerText = `£${numOfNightsToStay * pricePerDay}`;
