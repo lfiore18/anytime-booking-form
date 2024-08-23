@@ -40,4 +40,9 @@ function calculatePriceOfStay()
     totalPriceSpan.innerText = `£${numOfNightsToStay * pricePerDay}`;
 }
 
+const form = document.querySelector('form');
+form.addEventListener('submit', e => {
+    e.preventDefault();
+});
+
 calculatePriceOfStay();
