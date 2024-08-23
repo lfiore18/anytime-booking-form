@@ -4,11 +4,11 @@
         <link rel="stylesheet" href="./dist/output.css">
     </head>
     <body class="container">
-        <div>
-            <span>£199 a night</span>
+        <div class="flex flex-col w-96 p-4 bg-slate-200">
+            <span class="text-lg"><b>£199</b> a night</span>
             <div>
-                <form action="" id="booking-form">
-                    <label for="properties">Choose a place to stay: </label>
+                <form class="flex flex-col space-y-3" action="" id="booking-form">
+                    <label class="font-semibold" for="properties">Choose a place to stay: </label>
                     <select name="properties" id="properties-select">
                         <option value="shire">The Shire</option>
                         <option value="rivendell">Rivendell</option>
@@ -17,21 +17,29 @@
                         <option value="gray-havens">The Gray Havens</option>
                         <option value="moria">The Mines of Moria</option>
                     </select>
-                    <label for="check-in-date">Check-In</label>
-                    <input type="date" name="check-in-date" id="check-in-date">                
-                    <label for="check-in-date">Check-Out</label>
-                    <input type="date" name="check-out-date" id="check-out-date">
-                    <button>Book Now</button>                
+                    <div class="flex">
+                        <div class="flex flex-col w-1/2">
+                            <label class="font-semibold" for="check-in-date">Check-In</label>
+                            <input type="date" name="check-in-date" id="check-in-date" value="2024-01-08" onchange="calculatePriceOfStay(event)">                
+                        </div>
+                        <div class="flex flex-col w-1/2">
+                            <label class="font-semibold" for="check-in-date">Check-Out</label>
+                            <input type="date" name="check-out-date" id="check-out-date" value="2024-02-08" onchange="calculatePriceOfStay(event)">
+                        </div>
+                    </div>
+                    <button onclick="calculatePriceOfStay(event)">Book Now</button>                
                 </form>
-            </div>
-            <div id="pricing-details">
-                <div>Total: <span id="total-price"></span></div>
+                <div id="pricing-details">
+                    <div class="font-semibold">Total: <span id="total-price"></span></div>
+                </div>
             </div>
         </div>
     </body>
     <footer>
         <i class="opacity-25">Luke Anastasi</i>
     </footer>
-    <script src="index.js" type="module">
+    <script src="index.js">        
+    </script>
+    <script>
     </script>
 </html>
