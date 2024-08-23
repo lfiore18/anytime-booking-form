@@ -4,40 +4,42 @@
         <link rel="stylesheet" href="./dist/output.css">
     </head>
     <body class="container">
-        <div class="flex flex-col w-96 p-4 bg-slate-200">
-            <span class="text-lg"><b>£199</b> a night</span>
+        <div class="flex flex-col w-96 rounded p-5 shadow-lg border border-gray-200">
+            <span class="text-xl mb-5 text-gray-700"><b>£199</b> a night</span>
             <div>
-                <form class="flex flex-col space-y-3" action="" id="booking-form">
-                    <label class="font-semibold" for="properties">Choose a place to stay: </label>
-                    <select name="properties" id="properties-select">
-                        <option value="shire">The Shire</option>
-                        <option value="rivendell">Rivendell</option>
-                        <option value="mordor">Mordor</option>
-                        <option value="gondor">Gondor</option>
-                        <option value="gray-havens">The Gray Havens</option>
-                        <option value="moria">The Mines of Moria</option>
-                    </select>
-                    <div class="flex">
+                <form class="flex flex-col space-y-5 mb-5" action="" id="booking-form">
+                    <div class="flex flex-col">
+                        <label class="font-semibold mb-1" for="properties">Choose a place to stay: </label>
+                        <select name="properties" id="properties-select" class="border p-2">
+                            <option value="shire">The Shire</option>
+                            <option value="rivendell">Rivendell</option>
+                            <option value="mordor">Mordor</option>
+                            <option value="gondor">Gondor</option>
+                            <option value="gray-havens">The Gray Havens</option>
+                            <option value="moria">The Mines of Moria</option>
+                        </select>
+                    </div>
+                    <div class="flex bg-white space-x-5 rounded border p-2">
                         <div class="flex flex-col w-1/2">
-                            <label class="font-semibold" for="check-in-date">Check-In</label>
+                            <label class="text-sm font-semibold" for="check-in-date">Check-in</label>
                             <input type="date" name="check-in-date" id="check-in-date" value="2024-01-08" onchange="calculatePriceOfStay(event)">                
                         </div>
                         <div class="flex flex-col w-1/2">
-                            <label class="font-semibold" for="check-in-date">Check-Out</label>
-                            <input type="date" name="check-out-date" id="check-out-date" value="2024-02-08" onchange="calculatePriceOfStay(event)">
+                            <label class="text-sm font-semibold" for="check-in-date">Checkout</label>
+                            <input type="date" name="check-out-date" id="check-out-date" value="2024-01-09" onchange="calculatePriceOfStay(event)">
                         </div>
                     </div>
-                    <button onclick="calculatePriceOfStay(event)">Book Now</button>                
+                    <button class="bg-blue-400 text-white font-semibold hover:text-white hover:bg-blue-500 py-2 px-4 rounded" onclick="calculatePriceOfStay(event)">Book Now</button>                
                 </form>
-                <div id="pricing-details">
-                    <div class="font-semibold">Total: <span id="total-price"></span></div>
+                
+                <div id="pricing-details" class="flex flex-col space-y-3">                    
+                    <div class="flex justify-between"><span id="nights-price-label"></span><span id="nights-price-calculation"></span></div>
+                    <hr class="w-full">
+                    <div class="flex justify-between"><span class="font-semibold">Total:</span><span id="total-price" class="font-semibold"></span></div>
                 </div>
             </div>
         </div>
     </body>
-    <footer>
-        <i class="opacity-25">Luke Anastasi</i>
-    </footer>
     <script src="index.js">        
     </script>
     <script>

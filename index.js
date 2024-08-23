@@ -8,7 +8,7 @@ function dateDiffInDays(a, b)
     return Math.floor((utc2 - utc1) / _MS_PER_DAY);
 }
 
-function calculatePriceOfStay(e)
+function calculatePriceOfStay()
 {
     // get dates 
     let checkInDate = document.getElementById("check-in-date").value;
@@ -16,6 +16,10 @@ function calculatePriceOfStay(e)
 
     const totalPriceSpan = document.getElementById("total-price");
     
+    const priceCalculationLabel = document.getElementById("nights-price-label");
+    const priceCalculationTotal = document.getElementById("nights-price-calculation");
+
+        
     // hardcoded price per day
     const pricePerDay = 199;
 
@@ -25,10 +29,9 @@ function calculatePriceOfStay(e)
  
     let numOfDaysToStay = dateDiffInDays(checkInDate, checkOutDate);
 
-    // Change the price per stay
+    priceCalculationLabel.innerText = `£${pricePerDay} x ${numOfDaysToStay} nights`;
+    priceCalculationTotal.innerText = `£${numOfDaysToStay * pricePerDay}`;
     totalPriceSpan.innerText = `£${numOfDaysToStay * pricePerDay}`;
 }
 
-
-
-//console.log(calculatePriceOfStay());
+calculatePriceOfStay();
