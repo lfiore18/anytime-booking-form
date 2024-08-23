@@ -4,9 +4,27 @@
         <link rel="stylesheet" href="./dist/output.css">
     </head>
     <body class="container">
-        <div class="">
-            <h1 class="text-2xl font-bold">Tailwind Boilerplate</h1>
-            <p>Because set up is a royal pain in the ass and I hate doing it.</p>
+        <div>
+            <div>
+                <form action="" id="booking-form">
+                    <label for="properties">Choose a place to stay: </label>
+                    <select name="properties" id="properties-select">
+                        <option value="shire">The Shire</option>
+                        <option value="rivendell">Rivendell</option>
+                        <option value="mordor">Mordor</option>
+                        <option value="gondor">Gondor</option>
+                        <option value="gray-havens">The Gray Havens</option>
+                        <option value="moria">The Mines of Moria</option>
+                    </select>
+                    <label for="check-in-date">Check-In</label>
+                    <input type="date" name="check-in-date" id="check-in-date">                
+                    <label for="check-in-date">Check-Out</label>
+                    <input type="date" name="check-out-date" id="check-out-date">
+                    <button>Book Now</button>                
+                </form>
+            </div>
+            <div>
+            </div>
         </div>
     </body>
     <footer>
