@@ -11,8 +11,19 @@ function dateDiffInDays(a, b)
 function calculatePriceOfStay()
 {
     // get dates 
-    let checkInDate = document.getElementById("check-in-date").value;
-    let checkOutDate = document.getElementById("check-out-date").value;
+    const checkInDateEl = document.getElementById("check-in-date");
+    const checkOutDateEl = document.getElementById("check-out-date");
+
+    // convert to date objects to work with dateDiffInDays
+    let checkInDate = new Date(checkInDateEl.value);
+    let checkOutDate = new Date(checkOutDateEl.value);
+
+    // Return early if the checkin date is greater than checkout date
+    if (checkInDate > checkOutDate)
+    {
+        checkInDateEl.value = checkOutDateEl.value;
+        return;
+    }
 
     const totalPriceSpan = document.getElementById("total-price");
     
@@ -23,9 +34,6 @@ function calculatePriceOfStay()
     // hardcoded price per day
     const pricePerDay = 199;
 
-    // convert to date objects to work with dateDiffInDays
-    checkInDate = new Date(checkInDate);
-    checkOutDate = new Date(checkOutDate);
  
     let numOfDaysToStay = dateDiffInDays(checkInDate, checkOutDate);
 
