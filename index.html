@@ -26,7 +26,7 @@
                         </div>
                         <div class="flex flex-col w-1/2">
                             <label class="text-sm font-semibold" for="stay-duration">Staying for: </label>     
-                            <div class="flex"><input class="w-10 font-semibold mr-1 focus:outline-none" type="number" min="0" max="30" name="stay-duration" id="stay-duration" onchange="calculatePriceOfStay(event)" value="0"><span>nights</span></div>
+                            <div class="flex"><input class="w-10 font-semibold mr-1 focus:outline-none focus:underline focus:font-bold" type="number" min="0" max="30" name="stay-duration" id="stay-duration" onchange="calculatePriceOfStay(event)" value="0"><span>nights</span></div>
                         </div>
                     </div>
                     <button class="bg-blue-500 text-white font-semibold transition-colors hover:text-white hover:bg-blue-400 py-3 px-4 rounded" onclick="calculatePriceOfStay(event)">Book Now</button>                
