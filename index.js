@@ -29,16 +29,15 @@ function calculatePriceOfStay()
     
     const priceCalculationLabel = document.getElementById("nights-price-label");
     const priceCalculationTotal = document.getElementById("nights-price-calculation");
-
-        
+    
     // hardcoded price per day
     const pricePerDay = 199;
 
-    let numOfDaysToStay = dateDiffInDays(checkInDate, checkOutDate);
+    let numOfNightsToStay = dateDiffInDays(checkInDate, checkOutDate);
 
-    priceCalculationLabel.innerText = `£${pricePerDay} x ${numOfDaysToStay} nights`;
-    priceCalculationTotal.innerText = `£${numOfDaysToStay * pricePerDay}`;
-    totalPriceSpan.innerText = `£${numOfDaysToStay * pricePerDay}`;
+    priceCalculationLabel.innerText = `£${pricePerDay} x ${numOfNightsToStay} night${numOfNightsToStay > 1 ? 's' : ''}`;
+    priceCalculationTotal.innerText = `£${numOfNightsToStay * pricePerDay}`;
+    totalPriceSpan.innerText = `£${numOfNightsToStay * pricePerDay}`;
 }
 
 calculatePriceOfStay();
