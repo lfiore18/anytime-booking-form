@@ -47,7 +47,8 @@ form.addEventListener('submit', e => {
 document.addEventListener('DOMContentLoaded', e => {
     fetch("http://localhost:3000/properties")
         .then(res => res.json())
-        .then(res => console.log(res));
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
 });
 
 calculatePriceOfStay();
