@@ -1,10 +1,19 @@
 const dotenv = require('dotenv');
 const express = require('express');
+const mongoose = require('mongoose');
 
 const app = express();
 
 // Load environment variables from .env
 dotenv.config();
+
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        console.log("Connected to MongoDB");
+    })
+    .catch((err) => {
+        console.logo(err);
+    });
 
 app.get('/', (res, req) => {
     req.send("Hello");

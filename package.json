@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/app.js",
-    "dev": "npx tailwindcss -i ./src/css/main.css -o ./dist/output.css --watch && nodemon server/app.js",
+    "dev": "npx tailwindcss -i ./src/css/main.css -o ./dist/output.css --watch & bash start-mongo.sh & nodemon server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
