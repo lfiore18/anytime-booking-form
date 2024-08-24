@@ -1,11 +1,11 @@
 # Anytime Booking: Booking Form Task
 
 ## Tech used:
-Vanilla JS
-Tailwind CSS for styling
+- Vanilla JS
+- Tailwind CSS for styling
 
 ## My Approach
-As discussed in the interview, I've opted to use 2 <code><input type="date"></code> tags with regards to collecting the "check-in" and "checkout" dates from the user and calculating the length of the users stay: for better or worse!
+As discussed in the interview, I've opted to use 2 <code>input type=date</code> tags with regards to collecting the "check-in" and "checkout" dates from the user and calculating the length of the users stay: for better or worse!
 I would estimate that it took roughly 1 hour 40 minutes to complete the task, however I did get a little carried away and spent extra time trying to apply some validation to the date picking.
 
 ## Some Caveats
@@ -16,7 +16,7 @@ There are a few bugs. For example, you can choose a check-in date that is greate
 
 For styling purposes, I opted for Tailwind simply because it's what I'm most comfortable with and used to. It could have just as easily have been Bootstrap or vanilla CSS.
 
-I hope I've done enough to demonstrate my skill and I thank you for your consideration.
+I hope I've done enough to demonstrate my skill and I thank you for your consideration. 
 
 ## Running the project
 It should be as easy as:
