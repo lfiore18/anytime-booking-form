@@ -26,7 +26,6 @@ function calculatePriceOfStay()
     }
 
     const totalPriceSpan = document.getElementById("total-price");
-    
     const priceCalculationLabel = document.getElementById("nights-price-label");
     const priceCalculationTotal = document.getElementById("nights-price-calculation");
     
@@ -43,6 +42,12 @@ function calculatePriceOfStay()
 const form = document.querySelector('form');
 form.addEventListener('submit', e => {
     e.preventDefault();
+});
+
+document.addEventListener('DOMContentLoaded', e => {
+    fetch("http://localhost:3000/properties")
+        .then(res => res.json())
+        .then(res => console.log(res));
 });
 
 calculatePriceOfStay();
