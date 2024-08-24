@@ -8,15 +8,11 @@ const app = express();
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log("Connected to MongoDB");
-    })
-    .catch((err) => {
-        console.logo(err);
-    });
-
-app.get('/', (res, req) => {
-    req.send("Hello");
+.then(() => {
+    console.log("Connected to MongoDB");
+})
+.catch((err) => {
+    console.logo(err);
 });
 
 const PORT = process.env.PORT || 3000;
