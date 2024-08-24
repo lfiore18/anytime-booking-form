@@ -3,18 +3,25 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npx tailwindcss -i ./src/css/main.css -o ./dist/output.css --watch",
+    "start": "node server/app.js",
+    "dev": "npx tailwindcss -i ./src/css/main.css -o ./dist/output.css --watch && nodemon server/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tailwind": "^4.0.0"
+    "tailwind": "^4.0.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "nodemon": "^3.1.4"
   },
   "description": ""
 }
