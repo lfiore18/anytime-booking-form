@@ -10,7 +10,7 @@
                 <form class="flex flex-col space-y-5 mb-5" id="booking-form">
                     <div class="flex flex-col">
                         <label class="font-semibold mb-1 text-sm" for="properties">Choose a place to stay: </label>
-                        <select name="properties" id="properties-select" class="border p-2 rounded cursor-pointer border-gray-300" onchange="updatePriceText(event)">
+                        <select name="properties" id="properties-select" class="border p-2 rounded cursor-pointer border-gray-300" onchange="updateFormUI()">
                             <!-- <option value="shire">The Shire</option>
                             <option value="rivendell">Rivendell</option>
                             <option value="mordor">Mordor</option>
@@ -22,14 +22,14 @@
                     <div class="flex bg-white space-x-5 rounded border border-gray-300 p-2">
                         <div class="flex flex-col w-1/2">
                             <label class="text-sm font-semibold" for="check-in-date">Check-in</label>
-                            <input class="cursor-pointer focus:outline-none focus:ring-0" type="date" name="check-in-date" id="check-in-date" value="2024-01-08" onchange="calculatePriceOfStay(event)">                
+                            <input class="cursor-pointer focus:outline-none focus:ring-0" type="date" name="check-in-date" id="check-in-date" value="2024-01-08" onchange="updateFormUI(event)">                
                         </div>
                         <div class="flex flex-col w-1/2">
                             <label class="text-sm font-semibold" for="check-in-date">Checkout</label>
-                            <input class="cursor-pointer focus:outline-none focus:ring-0" type="date" name="check-out-date" id="check-out-date" value="2024-01-09" onchange="calculatePriceOfStay(event)">
+                            <input class="cursor-pointer focus:outline-none focus:ring-0" type="date" name="check-out-date" id="check-out-date" value="2024-01-09" onchange="updateFormUI(event)">
                         </div>
                     </div>
-                    <button class="bg-blue-500 text-white font-semibold transition-colors hover:text-white hover:bg-blue-400 py-3 px-4 rounded" onclick="calculatePriceOfStay(event)">Book Now</button>                
+                    <button class="bg-blue-500 text-white font-semibold transition-colors hover:text-white hover:bg-blue-400 py-3 px-4 rounded" onclick="updateFormUI(event)">Book Now</button>                
                 </form>
                 
                 <div id="pricing-details" class="flex flex-col space-y-3">                    
