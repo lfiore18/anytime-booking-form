@@ -10,7 +10,7 @@
                 <form class="flex flex-col space-y-5 mb-5" id="booking-form">
                     <div class="flex flex-col">
                         <label class="font-semibold mb-1 text-sm" for="properties">Choose a place to stay: </label>
-                        <select name="properties" id="properties-select" class="border p-2 rounded cursor-pointer border-gray-300" onchange="updatePriceText(event)">
+                        <select name="properties" id="properties-select" class="border p-2 rounded cursor-pointer border-gray-300" onchange="calculatePriceOfStay()">
                             <!-- <option value="shire">The Shire</option>
                             <option value="rivendell">Rivendell</option>
                             <option value="mordor">Mordor</option>

@@ -32,8 +32,13 @@ function calculatePriceOfStay()
     const selectEl = document.getElementById("properties-select");
     const pricePerNight = getPriceFromSelectedOption(selectEl);
 
+    // Update Price Tag at top of form
+    const priceTag = document.getElementById("price-tag");
+    priceTag.innerText = `£${pricePerNight}`;
+
     let numOfNightsToStay = dateDiffInDays(checkInDate, checkOutDate);
 
+    // Update calculation tags at the bottom of form
     priceCalculationLabel.innerText = `£${pricePerNight} x ${numOfNightsToStay} night${numOfNightsToStay > 1 ? 's' : ''}`;
     priceCalculationTotal.innerText = `£${numOfNightsToStay * pricePerNight}`;
     totalPriceSpan.innerText = `£${numOfNightsToStay * pricePerNight}`;
@@ -50,17 +55,6 @@ function getPriceFromSelectedOption(selectEl)
     return selectedPropertyPrice;
 }
 
-function updatePriceText(event) {
-    // get the select element by accessing the target of the event
-    const selectEl = event != null ? event.target : document.getElementById("properties-select");
-
-    // get the currently selected option from the select element
-    let price = getPriceFromSelectedOption(selectEl); 
-
-    const priceTag = document.getElementById("price-tag");
-    priceTag.innerText = `£${price}`;
-}
-
 document.addEventListener('DOMContentLoaded', e => {
     fetch("http://localhost:3000/properties")
         .then(res => res.json())
@@ -72,7 +66,6 @@ document.addEventListener('DOMContentLoaded', e => {
         })
         .then(next => { 
             calculatePriceOfStay();
-            updatePriceText();
         })
         .catch(err => console.log(err));
         
