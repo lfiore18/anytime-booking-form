@@ -29,23 +29,37 @@ function calculatePriceOfStay()
     const priceCalculationLabel = document.getElementById("nights-price-label");
     const priceCalculationTotal = document.getElementById("nights-price-calculation");
     
-    // hardcoded price per day
-    const pricePerDay = 199;
+    const selectEl = document.getElementById("properties-select");
+    const pricePerNight = getPriceFromSelectedOption(selectEl);
 
     let numOfNightsToStay = dateDiffInDays(checkInDate, checkOutDate);
 
-    priceCalculationLabel.innerText = `£${pricePerDay} x ${numOfNightsToStay} night${numOfNightsToStay > 1 ? 's' : ''}`;
-    priceCalculationTotal.innerText = `£${numOfNightsToStay * pricePerDay}`;
-    totalPriceSpan.innerText = `£${numOfNightsToStay * pricePerDay}`;
+    priceCalculationLabel.innerText = `£${pricePerNight} x ${numOfNightsToStay} night${numOfNightsToStay > 1 ? 's' : ''}`;
+    priceCalculationTotal.innerText = `£${numOfNightsToStay * pricePerNight}`;
+    totalPriceSpan.innerText = `£${numOfNightsToStay * pricePerNight}`;
+}
+
+function getPriceFromSelectedOption(selectEl)
+{
+    // get the currently selected option from the select element
+    let selectedProperty = selectEl.options[selectEl.selectedIndex];
+    
+    // access the price data attribute on the selected element
+    let selectedPropertyPrice = selectedProperty.dataset.price;
+
+    return selectedPropertyPrice;
 }
 
 function updatePriceText(event) {
-    let selectEl = event.target;
+    // get the select element by accessing the target of the event
+    const selectEl = event != null ? event.target : document.getElementById("properties-select");
 
-    let selectedPropertyName = selectEl.value;
-    let selectedPropertyPrice = selectEl.dataset.price;
+    // get the currently selected option from the select element
+    let price = getPriceFromSelectedOption(selectEl); 
 
-    console.log(selectedPropertyName + " " + selectedPropertyPrice);
+    const priceTag = document.getElementById("price-tag");
+
+    priceTag.innerText = `£${price}`;
 }
 
 document.addEventListener('DOMContentLoaded', e => {
@@ -57,12 +71,15 @@ document.addEventListener('DOMContentLoaded', e => {
                 propertiesSelectEl.innerHTML += `<option value="${property.name}" data-price="${property.price}">${property.name}</option>`
             })
         })
+        .then(next => { 
+            calculatePriceOfStay();
+            updatePriceText();
+        })
         .catch(err => console.log(err));
-
-    const form = document.querySelector('form');
+        
+    const form = document.querySelector("form");
     form.addEventListener('submit', e => {
         e.preventDefault();
     });
 });
 
-calculatePriceOfStay();
