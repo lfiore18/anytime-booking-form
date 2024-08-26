@@ -22,3 +22,7 @@ I hope I've done enough to demonstrate my skill and I thank you for your conside
 It should be as easy as:
 1. running <code>npm install</code> for the dependencies
 2. running <code>npm start</code> to compile tailwindcss and start watching for changes (shouldn't be necessary unless the src/css/main.css file is changed)
+
+
+## Starting up the database
+I've included a means to seed the database with placeholder data.

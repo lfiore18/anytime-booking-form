@@ -39,16 +39,30 @@ function calculatePriceOfStay()
     totalPriceSpan.innerText = `£${numOfNightsToStay * pricePerDay}`;
 }
 
-const form = document.querySelector('form');
-form.addEventListener('submit', e => {
-    e.preventDefault();
-});
+function updatePriceText(event) {
+    let selectEl = event.target;
+
+    let selectedPropertyName = selectEl.value;
+    let selectedPropertyPrice = selectEl.dataset.price;
+
+    console.log(selectedPropertyName + " " + selectedPropertyPrice);
+}
 
 document.addEventListener('DOMContentLoaded', e => {
     fetch("http://localhost:3000/properties")
         .then(res => res.json())
-        .then(res => console.log(res))
+        .then(properties => {
+            const propertiesSelectEl = document.getElementById("properties-select"); 
+            properties.forEach(property => {
+                propertiesSelectEl.innerHTML += `<option value="${property.name}" data-price="${property.price}">${property.name}</option>`
+            })
+        })
         .catch(err => console.log(err));
+
+    const form = document.querySelector('form');
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+    });
 });
 
 calculatePriceOfStay();
