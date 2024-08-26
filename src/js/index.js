@@ -65,7 +65,11 @@ document.addEventListener('DOMContentLoaded', e => {
             })
         })
         .then(next => { 
+<<<<<<< HEAD
             updateFormUI();
+=======
+            calculatePriceOfStay();
+>>>>>>> b3539422fabe74d9ac6f5b753248411e1f196a01
         })
         .catch(err => console.log(err));
         
