@@ -58,7 +58,6 @@ function updatePriceText(event) {
     let price = getPriceFromSelectedOption(selectEl); 
 
     const priceTag = document.getElementById("price-tag");
-
     priceTag.innerText = `£${price}`;
 }
 
