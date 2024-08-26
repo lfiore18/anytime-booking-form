@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URI)
     const properties = [
         { name: 'The Shire, Bagend', price: 173 },
         { name: 'Osgilliath, War Torn Ruins', price: 199, discount: 0.2 },
-        { name: 'Mordor, Mt. Doom', price: 199, discount: 0.8 },
+        { name: 'Mordor, Mt. Doom', price: 99, discount: 0.8 },
         { name: 'The Gray Haven', price: 499 },
         { name: 'Rivendell', price: 259 }
     ];

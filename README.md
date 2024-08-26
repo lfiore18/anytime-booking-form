@@ -24,5 +24,17 @@ It should be as easy as:
 2. running <code>npm start</code> to compile tailwindcss and start watching for changes (shouldn't be necessary unless the src/css/main.css file is changed)
 
 
-## Starting up the database
+## Starting up the Back-end
+I know this wasn't asked for but I felt like doing it anyway just because it was fun! I've included it as a bonus, if you guys feel like taking a look at it.
+
+I've written a <b>very</b> basic express API with a mongodb database and a property model and I have the form UI calling for and updating the form using data received from the API.
+
 I've included a means to seed the database with placeholder data.
+
+After installing the dependencies, you should be able to run:
+
+You can then seed the database by running the following command:
+<code>npm run seed</code>
+
+You can then run the following command to start the server and mongoDB using the bash script I've included:
+<code>npm run dev-be</code>
